@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1528229110 source:c:\users\boa\desktop\#7boariudanandrei\topsort\main.c
+	<stdio.h>
+	<stdlib.h>
+
