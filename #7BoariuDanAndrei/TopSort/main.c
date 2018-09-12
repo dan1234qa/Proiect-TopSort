@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 int main(){
-    int i,j,k,n,a[100][100],indeg[100],flag[100],count=0;
+    int i,j,k,n,a[200][200],adag[200],link[200],adauga=0;
 
-    printf("Enter the no of vertices:\n");
+    printf("Introduceti numarul de noduri:\n");
     scanf("%d",&n);
 
-    printf("Enter the adjacency matrix:\n");
+    printf("Introduceti matricea de adiacenta:\n");
     for(i=0;i<n;i++){
         printf("Enter row %d\n",i+1);
         for(j=0;j<n;j++)
@@ -14,30 +14,30 @@ int main(){
     }
 
     for(i=0;i<n;i++){
-        indeg[i]=0;
-        flag[i]=0;
+        adag[i]=0;
+        link[i]=0;
     }
 
     for(i=0;i<n;i++)
         for(j=0;j<n;j++)
-            indeg[i]=indeg[i]+a[j][i];
+            adag[i]=adag[i]+a[j][i];
 
-    printf("\nThe topological order is:");
+    printf("\n Ordinea topologica este:");
 
-    while(count<n){
+    while(adauga<n){
         for(k=0;k<n;k++){
-            if((indeg[k]==0) && (flag[k]==0)){
+            if((adag[k]==0) && (link[k]==0)){
                 printf("%d ",(k+1));
-                flag [k]=1;
+              link[k]=1;
             }
 
             for(i=0;i<n;i++){
                 if(a[i][k]==1)
-                    indeg[k]--;
+                    adag[k]--;
             }
         }
 
-        count++;
+        adauga++;
     }
 
     return 0;
